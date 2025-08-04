@@ -1,6 +1,6 @@
 "use client";
 
-import { Plus } from "lucide-react";
+import { Plus, PenLine } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
@@ -24,9 +24,14 @@ export const SizesClient: React.FC<SizesClientProps> = ({
     <>
       <div className="flex items-center justify-between">
         <Heading title={`Курєри (${data.length})`} description="Організовуй дані курєрів" />
-        <Button onClick={() => router.push(`/${params.storeId}/sizes/new`)}>
-          <Plus className="mr-2 h-4 w-4" /> Додати нового
-        </Button>
+        <div className='flex gap-4'>
+          <Button onClick={() => router.push(`/${params.storeId}/prices`)}>
+            <PenLine className="mr-2 h-4 w-4" /> Змінити ціни
+          </Button>
+          <Button onClick={() => router.push(`/${params.storeId}/sizes/new`)}>
+            <Plus className="mr-2 h-4 w-4" /> Додати нового
+          </Button>
+        </div>
       </div>
       <Separator />
       <DataTable searchKey="name" columns={columns} data={data} />

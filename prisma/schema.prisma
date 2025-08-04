@@ -244,3 +244,9 @@ model Image {
 
   @@index([productId])
 }
+
+model prices {
+  id                  Int     @id @default(autoincrement())
+  basePrice           Int
+  distancePrice       Int
+}
